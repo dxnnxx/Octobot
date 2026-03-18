@@ -33,17 +33,17 @@ void setup() {
 
 }
 
-void curlRight() {
+void pullRight() {
   digitalWrite(DIR_M2, 1);
 
-  for (pwm2 = 0; pwm2 <= 150; pwm2++) {
+  for (pwm2 = 0; pwm2 <= 100; pwm2++) {
     analogWrite(PWM_M2, pwm2);
     delay(15);   
   }
 
-  delay(2000); // Run for 2 seconds
+  delay(700); // Run for 0.7 seconds
 
-  for (pwm2 = 150; pwm2 >= 0; pwm2--) {
+  for (pwm2 = 100; pwm2 >= 0; pwm2--) {
     analogWrite(PWM_M2, pwm2);
     delay(15);   
   }
@@ -51,8 +51,62 @@ void curlRight() {
   delay(1000); // wait for 1 second
 }
 
+void UnpullRight() {
+  digitalWrite(DIR_M2, 0);
+
+  for (pwm2 = 0; pwm2 <= 100; pwm2++) {
+    analogWrite(PWM_M2, pwm2);
+    delay(15);   
+  }
+
+  delay(700); // Run for 0.7 seconds
+
+  for (pwm2 = 100; pwm2 >= 0; pwm2--) {
+    analogWrite(PWM_M2, pwm2);
+    delay(15);   
+  }
+
+  delay(1000); // wait for 1 second
+}
+
+void pullLeft() {
+  digitalWrite(DIR_M3, 1);
+
+  for (pwm3 = 0; pwm3 <= 100; pwm3++) {
+    analogWrite(PWM_M3, pwm3);
+    delay(15);   
+  }
+
+  delay(700); // Run for 0.7 seconds
+
+  for (pwm3 = 100; pwm3 >= 0; pwm3--) {
+    analogWrite(PWM_M3, pwm3);
+    delay(15);   
+  }
+
+  delay(1000); // wait for 1 second
+}
+
+void UnpullLeft() {
+  digitalWrite(DIR_M3, 0);
+
+  for (pwm3 = 0; pwm3 <= 100; pwm3++) {
+    analogWrite(PWM_M3, pwm3);
+    delay(15);   
+  }
+
+  delay(700); // Run for 0.7 seconds
+
+  for (pwm3 = 100; pwm3 >= 0; pwm3--) {
+    analogWrite(PWM_M3, pwm3);
+    delay(15);   
+  }
+
+  delay(1000); // wait for 1 second
+}
 
 void loop() {
   // put your main code here, to run repeatedly:
-  curlRight();
+  pullRight();
+  UnpullRight();
 }
